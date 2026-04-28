@@ -1,0 +1,262 @@
+/* Variables Pro */
+:root {
+    --bg: #0a0a0a;
+    --text: #f5f5f5;
+    --accent: #00aaff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+.serif { font-family: 'Playfair Display', serif; }
+.accent { color: var(--accent); }
+
+/* Glass Navigation */
+.glass-nav {
+    position: fixed;
+    top: 0; width: 100%;
+    padding: 1.5rem 10%;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    border-bottom: 0.5px solid var(--border);
+}
+
+.logo { font-size: 1.5rem; font-weight: bold; }
+.logo span { color: var(--accent); }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { color: var(--text); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+
+/* Hero */
+.hero {
+    height: 100vh; /* Ocupa todo el alto de la pantalla */
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    
+    /* Imagen de fondo */
+    background-image: linear-gradient(rgba(10, 10, 10, 0.7), rgba(10, 10, 10, 0.7)), url('img/header.webp');
+    background-size: cover; /* La imagen se estira para cubrir todo sin deformarse */
+    background-position: center; /* Centra la foto */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Efecto Parallax opcional: la foto se queda quieta al bajar */
+}
+
+.hero h1 { font-size: 4.5rem; line-height: 1.1; margin-bottom: 1.5rem; }
+.hero p { font-size: 1.2rem; max-width: 600px; color: #aaa; margin-bottom: 2rem; }
+
+/* Glass Cards */
+.glass-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.glass-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+
+/* Portfolio Items */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem; padding: 2rem 10%;
+}
+
+.port-item {
+    height: 400px; background-size: cover; background-position: center;
+    border-radius: 15px; position: relative; overflow: hidden;
+}
+
+.overlay {
+    position: absolute; inset: 0; background: rgba(0,0,0,0.7);
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: 0.3s;
+}
+
+.port-item:hover .overlay { opacity: 1; }
+
+/* Botones */
+.btn-primary {
+    background: var(--accent);
+    color: white; padding: 1rem 2.5rem;
+    border-radius: 50px; text-decoration: none;
+    font-weight: bold; display: inline-block;
+}
+
+.btn-secondary {
+    border: 1px solid var(--border);
+    color: white; margin-left: 1rem;
+    padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none;
+}
+
+/* Precios */
+.price { margin: 2rem 0; }
+.old-price { text-decoration: line-through; color: #666; font-size: 1.5rem; margin-right: 1rem; }
+.new-price { font-size: 3rem; font-weight: bold; color: var(--accent); }
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .nav-links { display: none; }
+}
+
+.problem-section {
+    padding: 8rem 10%;
+    text-align: center;
+}
+
+.subtitle {
+    color: #888;
+    margin-bottom: 4rem;
+    font-size: 1.1rem;
+}
+
+.math-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.math-grid h3 {
+    margin-bottom: 1rem;
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.math-grid p {
+    font-size: 0.95rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+.math-conclusion {
+    background: linear-gradient(90deg, rgba(0,170,255,0.1), transparent);
+    padding: 2rem;
+    border-left: 4px solid var(--accent);
+    border-radius: 10px;
+    display: inline-block;
+    max-width: 800px;
+}
+
+.math-conclusion strong {
+    color: var(--accent);
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 8rem 10%;
+    background: linear-gradient(180deg, #0a0a0a 0%, #111 100%);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contact-info { text-align: left; }
+
+.social-links {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.social-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: #ccc;
+    padding: 1rem;
+    background: rgba(255,255,255,0.02);
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.social-item:hover {
+    background: rgba(0, 170, 255, 0.1);
+    color: var(--accent);
+}
+
+/* Formulario */
+.form-box {
+    text-align: left;
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-group input, 
+.input-group textarea {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px rgba(0, 170, 255, 0.2);
+}
+
+.full-width {
+    width: 100%;
+    cursor: pointer;
+    border: none;
+}
+
+/* Métodos de Pago */
+.payment-methods {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+}
+
+.payment-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: #888;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
